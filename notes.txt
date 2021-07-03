@@ -9,6 +9,6 @@ Self-Reference: https://www.raywenderlich.com/4529993-getting-started-with-flutt
 Widget Catalogue: https://flutter.dev/docs/development/ui/widgets/material
 Tasks Left:
   1. YouTube Playlist
-  2. Widget Examples
-  3. Sample App
+  2. Widget Catalogue
+  3. TSS Widget Examples and Sample App
   4. Calculator!
