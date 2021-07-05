@@ -31,20 +31,20 @@ class MyCalculator extends StatefulWidget {
   _MyCalculatorState createState() => _MyCalculatorState();
 }
 
-class _MyCalculatorState extends State <MyCalculator> {
+class _MyCalculatorState extends State<MyCalculator> {
   String _display = '';
   String _answer = '';
   bool error = true;
 
-  bool lengthError () {
+  bool lengthError() {
     return _display.length < 14;
   }
 
-  String _evaluate (String s) {
+  String _evaluate(String s) {
     double answer = 0.0;
-    List defaultOperators = ['x','/','+','-'];
-    List <String> numbers = [];
-    List <String> operators = [];
+    List defaultOperators = ['x', '/', '+', '-'];
+    List<String> numbers = [];
+    List<String> operators = [];
     var number = '';
     for (int i = 0; i < s.length; i++) {
       if (defaultOperators.contains(s[i])) {
@@ -54,8 +54,7 @@ class _MyCalculatorState extends State <MyCalculator> {
         operators.add(s[i]);
         numbers.add(number);
         number = '';
-      }
-      else {
+      } else {
         number += s[i];
       }
     }
@@ -66,14 +65,15 @@ class _MyCalculatorState extends State <MyCalculator> {
     for (String i in operators) {
       if (i == 'x') {
         var n = operators.indexOf(i) - multDiv;
-        numbers[n] = (double.parse(numbers[n]) * double.parse(numbers[n + 1])).toString();
+        numbers[n] = (double.parse(numbers[n]) * double.parse(numbers[n + 1]))
+            .toString();
         numbers.removeAt(n + 1);
         operatorCopy.remove(i);
         multDiv++;
-      }
-      else if (i == '/') {
+      } else if (i == '/') {
         var n = operators.indexOf(i) - multDiv;
-        numbers[n] = (double.parse(numbers[n]) / double.parse(numbers[n + 1])).toString();
+        numbers[n] = (double.parse(numbers[n]) / double.parse(numbers[n + 1]))
+            .toString();
         numbers.removeAt(n + 1);
         operatorCopy.remove(i);
         multDiv++;
@@ -86,13 +86,14 @@ class _MyCalculatorState extends State <MyCalculator> {
     for (String i in operators) {
       if (i == '+') {
         var n = operators.indexOf(i) - plusMinus;
-        numbers[n] = (double.parse(numbers[n]) + double.parse(numbers[n + 1])).toString();
+        numbers[n] = (double.parse(numbers[n]) + double.parse(numbers[n + 1]))
+            .toString();
         numbers.removeAt(n + 1);
         plusMinus++;
-      }
-      else if (i == '-') {
+      } else if (i == '-') {
         var n = operators.indexOf(i) - plusMinus;
-        numbers[n] = (double.parse(numbers[n]) - double.parse(numbers[n + 1])).toString();
+        numbers[n] = (double.parse(numbers[n]) - double.parse(numbers[n + 1]))
+            .toString();
         numbers.removeAt(n + 1);
         plusMinus++;
       }
@@ -101,119 +102,120 @@ class _MyCalculatorState extends State <MyCalculator> {
     return answer.toString();
   }
 
-  void _calcInputBackspace () {
+  void _calcInputBackspace() {
     setState(() {
       _display = removeLastCharacter(_display);
+      _answer = '';
     });
   }
 
-  void _calcInput0 () {
-    setState (() {
-      if (error)
-        _display += '0';
+  void _calcInput0() {
+    setState(() {
+      if (error) _display += '0';
     });
   }
-  void _calcInputClear () {
-    setState (() {
+
+  void _calcInputClear() {
+    setState(() {
       _display = '';
       _answer = '';
       error = true;
     });
   }
-  void _calcInputEvaluate () {
-    setState (() {
-      if (error)
-        _answer = _evaluate(_display);
+
+  void _calcInputEvaluate() {
+    setState(() {
+      if (error) _answer = _evaluate(_display);
     });
   }
-  void _calcInputDot () {
-    setState (() {
-      if (error)
-        _display += '.';
+
+  void _calcInputDot() {
+    setState(() {
+      if (error) _display += '.';
     });
   }
-  void _calcInput00 () {
-    setState (() {
-      if (error)
-        _display += '00';
+
+  void _calcInput00() {
+    setState(() {
+      if (error) _display += '00';
     });
   }
-  void _calcInputPlus () {
-    setState (() {
-      if (error)
-        _display += '+';
+
+  void _calcInputPlus() {
+    setState(() {
+      if (error) _display += '+';
     });
   }
-  void _calcInput1 () {
-    setState (() {
-      if (error)
-        _display += '1';
+
+  void _calcInput1() {
+    setState(() {
+      if (error) _display += '1';
     });
   }
-  void _calcInput2 () {
-    setState (() {
-      if (error)
-        _display += '2';
+
+  void _calcInput2() {
+    setState(() {
+      if (error) _display += '2';
     });
   }
-  void _calcInput3 () {
-    setState (() {
-      if (error)
-        _display += '3';
+
+  void _calcInput3() {
+    setState(() {
+      if (error) _display += '3';
     });
   }
-  void _calcInputMinus () {
-    setState (() {
-      if (error)
-        _display += '-';
+
+  void _calcInputMinus() {
+    setState(() {
+      if (error) _display += '-';
     });
   }
-  void _calcInput4 () {
-    setState (() {
-      if (error)
-        _display += '4';
+
+  void _calcInput4() {
+    setState(() {
+      if (error) _display += '4';
     });
   }
-  void _calcInput5 () {
-    setState (() {
-      if (error)
-        _display += '5';
+
+  void _calcInput5() {
+    setState(() {
+      if (error) _display += '5';
     });
   }
-  void _calcInput6 () {
-    setState (() {
-      if (error)
-        _display += '6';
+
+  void _calcInput6() {
+    setState(() {
+      if (error) _display += '6';
     });
   }
-  void _calcInputMultiply () {
-    setState (() {
-      if (error)
-        _display += 'x';
+
+  void _calcInputMultiply() {
+    setState(() {
+      if (error) _display += 'x';
     });
   }
-  void _calcInput7 () {
-    setState (() {
-      if (error)
-        _display += '7';
+
+  void _calcInput7() {
+    setState(() {
+      if (error) _display += '7';
     });
   }
-  void _calcInput8 () {
-    setState (() {
-      if (error)
-        _display += '8';
+
+  void _calcInput8() {
+    setState(() {
+      if (error) _display += '8';
     });
   }
-  void _calcInput9 () {
-    setState (() {
-      if (error)
-        _display += '9';
+
+  void _calcInput9() {
+    setState(() {
+      if (error) _display += '9';
     });
   }
-  void _calcInputDivide () {
-    setState (() {
-      if (error)
-        _display += '/';
+
+  void _calcInputDivide() {
+    setState(() {
+      if (error) _display += '/';
     });
   }
 
@@ -229,10 +231,10 @@ class _MyCalculatorState extends State <MyCalculator> {
         title: Text(widget.title),
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(0.0,15.0,0.0,10.0),
+        padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget> [
+          children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Row(
@@ -246,7 +248,6 @@ class _MyCalculatorState extends State <MyCalculator> {
                     ),
                   ),
                 ],
-
               ),
             ),
             SizedBox(height: 10.0),
@@ -272,7 +273,7 @@ class _MyCalculatorState extends State <MyCalculator> {
             ),
             ButtonBar(
               alignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget> [
+              children: <Widget>[
                 OutlinedButton(
                   onPressed: _calcInput7,
                   child: const Text('7'),
@@ -293,7 +294,7 @@ class _MyCalculatorState extends State <MyCalculator> {
             ),
             ButtonBar(
               alignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget> [
+              children: <Widget>[
                 OutlinedButton(
                   onPressed: _calcInput4,
                   child: const Text('4'),
@@ -314,7 +315,7 @@ class _MyCalculatorState extends State <MyCalculator> {
             ),
             ButtonBar(
               alignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget> [
+              children: <Widget>[
                 OutlinedButton(
                   onPressed: _calcInput1,
                   child: const Text('1'),
@@ -335,7 +336,7 @@ class _MyCalculatorState extends State <MyCalculator> {
             ),
             ButtonBar(
               alignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget> [
+              children: <Widget>[
                 OutlinedButton(
                   onPressed: _calcInputDot,
                   child: const Text('.'),
@@ -356,7 +357,7 @@ class _MyCalculatorState extends State <MyCalculator> {
             ),
             ButtonBar(
               alignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget> [
+              children: <Widget>[
                 OutlinedButton(
                   onPressed: _calcInputClear,
                   child: const Text('CLEAR'),
