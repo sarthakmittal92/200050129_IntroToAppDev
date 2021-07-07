@@ -7,8 +7,4 @@ Playlist: https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6P
 Assignment: https://github.com/wncc/TSS-2021/blob/main/Intro%20to%20App%20Development/Week-1/Assignment.md
 Self-Reference: https://www.raywenderlich.com/4529993-getting-started-with-flutter
 Widget Catalogue: https://flutter.dev/docs/development/ui/widgets/material
-Tasks Left:
-  1. YouTube Playlist
-  2. Widget Catalogue
-  3. TSS Widget Examples and Sample App
-  4. Calculator!
+Submission: https://forms.gle/QNwBQBDs5v8RNKHb8

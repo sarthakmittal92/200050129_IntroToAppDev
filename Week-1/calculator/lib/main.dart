@@ -99,7 +99,7 @@ class _MyCalculatorState extends State<MyCalculator> {
       }
     }
     answer = double.parse(numbers[0]);
-    return answer.toString();
+    return answer.toStringAsFixed(3);
   }
 
   void _calcInputBackspace() {
