@@ -62,20 +62,20 @@ class _MyCalculatorState extends State<MyCalculator> {
     List operatorCopy = [...operators];
     var multDiv = 0;
 
-    for (String i in operators) {
-      if (i == 'x') {
-        var n = operators.indexOf(i) - multDiv;
+    for (int i = 0; i < operators.length; i++) {
+      if (operators[i] == 'x') {
+        var n = i - multDiv;
         numbers[n] = (double.parse(numbers[n]) * double.parse(numbers[n + 1]))
             .toString();
         numbers.removeAt(n + 1);
-        operatorCopy.remove(i);
+        operatorCopy.remove(operators[i]);
         multDiv++;
-      } else if (i == '/') {
-        var n = operators.indexOf(i) - multDiv;
+      } else if (operators[i] == '/') {
+        var n = i - multDiv;
         numbers[n] = (double.parse(numbers[n]) / double.parse(numbers[n + 1]))
             .toString();
         numbers.removeAt(n + 1);
-        operatorCopy.remove(i);
+        operatorCopy.remove(operators[i]);
         multDiv++;
       }
     }
@@ -83,15 +83,15 @@ class _MyCalculatorState extends State<MyCalculator> {
     operators = [...operatorCopy];
     var plusMinus = 0;
 
-    for (String i in operators) {
-      if (i == '+') {
-        var n = operators.indexOf(i) - plusMinus;
+    for (int i = 0; i < operators.length; i++) {
+      if (operators[i] == '+') {
+        var n = i - plusMinus;
         numbers[n] = (double.parse(numbers[n]) + double.parse(numbers[n + 1]))
             .toString();
         numbers.removeAt(n + 1);
         plusMinus++;
-      } else if (i == '-') {
-        var n = operators.indexOf(i) - plusMinus;
+      } else if (operators[i] == '-') {
+        var n = i - plusMinus;
         numbers[n] = (double.parse(numbers[n]) - double.parse(numbers[n + 1]))
             .toString();
         numbers.removeAt(n + 1);
