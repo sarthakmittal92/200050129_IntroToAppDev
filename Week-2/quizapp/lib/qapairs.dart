@@ -1,6 +1,5 @@
-import 'questions.dart';
-
 class QA {
-  String question = '';
-  bool answer = true;
+  String q;
+  bool a;
+  QA({required this.q, required this.a});
 }
