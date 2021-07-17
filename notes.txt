@@ -17,3 +17,6 @@ List View: https://medium.com/flutter-community/flutter-building-a-listview-in-f
 Infinite List: https://www.programmersought.com/article/2539538887/
 First App: https://flutter.dev/docs/get-started/codelab#step-4-create-an-infinite-scrolling-listview
 Mastering Lists: https://pusher.com/tutorials/flutter-listviews/
+
+WEEK 3
+Notes: https://github.com/wncc/TSS-2021/tree/main/Intro%20to%20App%20Development/Week-3
