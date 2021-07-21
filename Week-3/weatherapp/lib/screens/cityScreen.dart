@@ -17,7 +17,7 @@ class _CityState extends State <City> {
     return Scaffold(
       body: Container(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(2.0,60.0,2.0,0.0),
+          padding: EdgeInsets.fromLTRB(3.0,60.0,3.0,0.0),
           child: Column(
             children: <Widget> [
               Row(
@@ -31,7 +31,7 @@ class _CityState extends State <City> {
                       color: Colors.blue,
                     ),
                     onPressed: () async {
-                      dynamic result = await Navigator.pushNamed(context, '/');
+                      dynamic result = await Navigator.pushNamed(context, '/reload');
                       setState(() {
                         data = {
                           'location': result['location'],
@@ -48,9 +48,50 @@ class _CityState extends State <City> {
                       size: 50.0,
                       color: Colors.blue,
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      dynamic result = await Navigator.pushNamed(context, '/location');
+                      setState(() {
+                        data = {
+                          'location': result['location'],
+                          'weather': result['weather'],
+                          'temp': result['temp'],
+                        };
+                      });
+                    },
                   ),
                 ],
+              ),
+              SizedBox(height: 200.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget> [
+                  Text(
+                    data['temp'],
+                    style: TextStyle(
+                      fontSize: 60.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(width: 20.0),
+                  Container(
+                    width: 60.0,
+                    height: 60.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/${data['weather']}.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 150.0),
+              Text(
+                data['location'],
+                style: TextStyle(
+                  fontSize: 50.0,
+                  fontWeight: FontWeight.w900,
+                ),
               ),
             ],
           ),
