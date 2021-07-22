@@ -11,8 +11,10 @@ class Reload extends StatefulWidget {
 }
 
 class _ReloadState extends State <Reload> {
-  void setUp () async {
-    Weather I = Weather(location: 'Mumbai');
+  void fetchWeather () async {
+    Fetcher fetcher = new Fetcher();
+    await fetcher.fetchLocation();
+    Weather I = Weather(location: fetcher.city.toString());
     await I.getWeather();
     Navigator.pop(context, {
       'location': I.location,
@@ -20,11 +22,10 @@ class _ReloadState extends State <Reload> {
       'temp': I.temp,
     });
   }
-
   @override
   void initState () {
     super.initState();
-    setUp();
+    fetchWeather();
   }
   @override
   Widget build(BuildContext context) {

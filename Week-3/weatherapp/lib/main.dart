@@ -8,7 +8,7 @@ void main() => runApp(MaterialApp(
   routes: {
     '/': (context) => Loading(),
     '/city': (context) => City(),
-    '/location': (context) => Location(),
+    '/location': (context) => MyLocation(),
     '/reload': (context) => Reload(),
   },
 ));

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weatherapp/services/location.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:weatherapp/services/weather.dart';
+import 'package:weatherapp/services/location.dart';
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -11,9 +12,10 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State <Loading> {
-  String city = 'Santacruz';
   void setUp () async {
-    Weather I = Weather(location: city);
+    Fetcher fetcher = new Fetcher();
+    await fetcher.fetchLocation();
+    Weather I = Weather(location: fetcher.city.toString());
     await I.getWeather();
     Navigator.pushReplacementNamed(context, '/city', arguments: {
       'location': I.location,

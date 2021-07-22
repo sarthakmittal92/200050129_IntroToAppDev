@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:weatherapp/services/weather.dart';
 
-class Location extends StatefulWidget {
-  const Location({Key? key}) : super(key: key);
+class MyLocation extends StatefulWidget {
+  const MyLocation({Key? key}) : super(key: key);
 
   @override
-  _LocationState createState() => _LocationState();
+  _MyLocationState createState() => _MyLocationState();
 }
 
-class _LocationState extends State <Location> {
+class _MyLocationState extends State <MyLocation> {
   String? city;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/bgImg.jpeg'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Padding(
           padding: EdgeInsets.fromLTRB(10.0,60.0,10.0,0),
           child: Column(
@@ -21,11 +27,23 @@ class _LocationState extends State <Location> {
               SizedBox(height: 60.0),
               TextField(
                 keyboardType: TextInputType.text,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
                 decoration: InputDecoration(
-                  icon: Icon(Icons.location_city_rounded),
+                  icon: Icon(
+                    Icons.location_city_rounded,
+                    color: Colors.white,
+                  ),
                   labelText: 'Enter a city',
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: new BorderSide(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 onSubmitted: (string) {
@@ -50,6 +68,7 @@ class _LocationState extends State <Location> {
                   style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
               ),

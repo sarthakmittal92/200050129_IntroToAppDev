@@ -16,6 +16,12 @@ class _CityState extends State <City> {
     print(data);
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/bgImg.jpeg'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Padding(
           padding: EdgeInsets.fromLTRB(3.0,60.0,3.0,0.0),
           child: Column(
@@ -28,7 +34,7 @@ class _CityState extends State <City> {
                     icon: Icon(
                       Icons.near_me_rounded,
                       size: 50.0,
-                      color: Colors.blue,
+                      color: Colors.red,
                     ),
                     onPressed: () async {
                       dynamic result = await Navigator.pushNamed(context, '/reload');
@@ -46,7 +52,7 @@ class _CityState extends State <City> {
                     icon: Icon(
                       Icons.location_city_rounded,
                       size: 50.0,
-                      color: Colors.blue,
+                      color: Colors.red,
                     ),
                     onPressed: () async {
                       dynamic result = await Navigator.pushNamed(context, '/location');
@@ -65,21 +71,37 @@ class _CityState extends State <City> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget> [
-                  Text(
-                    data['temp'],
-                    style: TextStyle(
-                      fontSize: 60.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        data['temp'],
+                        style: TextStyle(
+                          fontSize: 60.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.yellowAccent,
+                        ),
+                      ),
+                      Text(
+                        data['weather'],
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.yellowAccent,
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(width: 20.0),
                   Container(
-                    width: 60.0,
-                    height: 60.0,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/${data['weather']}.png'),
-                        fit: BoxFit.cover,
+                    color: Colors.grey[400],
+                    child: Container(
+                      width: 100.0,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/${data['weather']}.png'),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
@@ -89,8 +111,9 @@ class _CityState extends State <City> {
               Text(
                 data['location'],
                 style: TextStyle(
-                  fontSize: 50.0,
+                  fontSize: 45.0,
                   fontWeight: FontWeight.w900,
+                  color: Colors.white,
                 ),
               ),
             ],
